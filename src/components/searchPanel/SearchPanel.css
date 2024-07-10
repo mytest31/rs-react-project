@@ -1,0 +1,16 @@
+.searchPanel {
+  display: flex;
+  width: 70%;
+  margin: 1rem auto 2rem;
+}
+
+.searchInput {
+  padding: 0.25rem 0.5rem;
+  margin-right: 0.2rem;
+  width: 80%;
+}
+
+.searchButton {
+  cursor: pointer;
+  width: 20%;
+}

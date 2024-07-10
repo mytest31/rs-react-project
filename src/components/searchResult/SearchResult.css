@@ -1,0 +1,15 @@
+.searchResult {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  font-size: 2.5rem;
+  font-weight: 500;
+  padding: 5rem;
+  gap: 5rem;
+}
