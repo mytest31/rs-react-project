@@ -5,6 +5,8 @@ import './SearchPanel.css';
 
 interface ComponentProps {
   handleSearchResult: (result: ISearchResult) => void;
+  startSpinner: () => void;
+  endSpinner: () => void;
 }
 
 const classList: { [key: string]: string } = {
@@ -40,7 +42,12 @@ export default class SearchPanel extends Component<ComponentProps> {
         <button
           className={classList['searchButton']}
           onClick={() => {
-            fetchData(this.props.handleSearchResult, this.state.searchQuery);
+            fetchData(
+              this.props.handleSearchResult,
+              this.state.searchQuery,
+              this.props.startSpinner,
+              this.props.endSpinner,
+            );
             localStorage.setItem('searchQuery', this.state.searchQuery);
           }}
         >

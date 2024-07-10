@@ -7,11 +7,13 @@ import './SearchResult.css';
 interface ComponentProps {
   searchResult?: ISearchResult | undefined;
   customError: boolean;
+  spinner: boolean;
 }
 
 const classList: { [key: string]: string } = {
   searchResult: 'searchResult',
   message: 'message',
+  spinner: 'spinner',
 };
 
 export default class SearchResult extends Component<ComponentProps> {
@@ -43,7 +45,11 @@ export default class SearchResult extends Component<ComponentProps> {
     if (this.props.customError) {
       throw new Error('Custom error');
     }
-
+    console.log(this.props.spinner);
+    if (this.props.spinner) {
+      console.log('spinner enter');
+      return <div className={classList.spinner}></div>;
+    }
     return <div className={classList.searchResult}>{this.renderContent()}</div>;
   }
 }

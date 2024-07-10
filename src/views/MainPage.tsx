@@ -11,7 +11,10 @@ const classList: { [key: string]: string } = {
 };
 
 export default class MainPage extends Component {
-  state: { searchResult?: ISearchResult; customError: boolean } = { customError: false };
+  state: { searchResult?: ISearchResult; customError: boolean; spinner: boolean } = {
+    customError: false,
+    spinner: false,
+  };
 
   handleSearchResult(result: ISearchResult): void {
     this.setState({
@@ -25,6 +28,14 @@ export default class MainPage extends Component {
     });
   }
 
+  startSpinner(): void {
+    this.setState({ spinner: true });
+  }
+
+  endSpinner(): void {
+    this.setState({ spinner: false });
+  }
+
   render() {
     return (
       <div className={classList['main']}>
@@ -36,11 +47,16 @@ export default class MainPage extends Component {
         >
           Check Error Boundary
         </button>
-        <SearchPanel handleSearchResult={this.handleSearchResult.bind(this)} />
+        <SearchPanel
+          handleSearchResult={this.handleSearchResult.bind(this)}
+          startSpinner={this.startSpinner.bind(this)}
+          endSpinner={this.endSpinner.bind(this)}
+        />
         <CustomErrorBoundary>
           <SearchResult
             searchResult={this.state.searchResult}
             customError={this.state.customError}
+            spinner={this.state.spinner}
           />
         </CustomErrorBoundary>
       </div>

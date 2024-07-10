@@ -8,10 +8,14 @@ const defaultValues = {
 export default function fetchData(
   handleSearchResult: (result: ISearchResult) => void,
   searchQuery: string | null,
+  startSpinner?: () => void,
+  endSpinner?: () => void,
   page: string = defaultValues.page,
 ): void {
   const URL = createURL(searchQuery, page);
-
+  if (startSpinner) {
+    startSpinner();
+  }
   fetch(URL)
     .then((response) => {
       if (!response.ok) {
@@ -19,7 +23,12 @@ export default function fetchData(
       }
       return response.json();
     })
-    .then((data: ISearchResult) => handleSearchResult(data))
+    .then((data: ISearchResult) => {
+      handleSearchResult(data);
+      if (endSpinner) {
+        endSpinner();
+      }
+    })
     .catch((errorText: string) => {
       console.log(errorText);
     });
