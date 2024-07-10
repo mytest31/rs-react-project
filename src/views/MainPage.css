@@ -4,3 +4,11 @@
   justify-content: flex-start;
   width: 100%;
 }
+
+.errorBoundary {
+  display: flex;
+  justify-content: center;
+  width: 10vw;
+  cursor: pointer;
+  margin-left: auto;
+}

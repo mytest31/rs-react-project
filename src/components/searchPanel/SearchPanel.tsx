@@ -40,7 +40,9 @@ export default class SearchPanel extends Component<ComponentProps> {
         />
         <button
           className={classList['searchButton']}
-          onClick={() => fetchData(this.props.handleSearchResult, this.state.searchQuery)}
+          onClick={() => {
+            fetchData(this.props.handleSearchResult, this.state.searchQuery);
+          }}
         >
           Search
         </button>

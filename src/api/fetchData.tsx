@@ -13,6 +13,14 @@ export default function fetchData(
   const URL = createURL(searchQuery, page);
 
   fetch(URL)
-    .then((response) => response.json())
-    .then((data) => handleSearchResult(data));
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Response is not ok.');
+      }
+      return response.json();
+    })
+    .then((data: ISearchResult) => handleSearchResult(data))
+    .catch((errorText: string) => {
+      console.log(errorText);
+    });
 }

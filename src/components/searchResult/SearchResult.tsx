@@ -6,6 +6,7 @@ import './SearchResult.css';
 
 interface ComponentProps {
   searchResult?: ISearchResult | undefined;
+  customError: boolean;
 }
 
 const classList: { [key: string]: string } = {
@@ -39,6 +40,10 @@ export default class SearchResult extends Component<ComponentProps> {
   }
 
   render() {
+    if (this.props.customError) {
+      throw new Error('Custom error');
+    }
+
     return <div className={classList.searchResult}>{this.renderContent()}</div>;
   }
 }
