@@ -22,7 +22,6 @@ export default class SearchPanel extends Component<ComponentProps> {
     this.setState({
       searchQuery: e.target.value,
     });
-    localStorage.setItem('searchQuery', e.target.value);
   }
 
   componentDidMount(): void {
@@ -42,6 +41,7 @@ export default class SearchPanel extends Component<ComponentProps> {
           className={classList['searchButton']}
           onClick={() => {
             fetchData(this.props.handleSearchResult, this.state.searchQuery);
+            localStorage.setItem('searchQuery', this.state.searchQuery);
           }}
         >
           Search
