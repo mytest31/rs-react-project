@@ -1,0 +1,36 @@
+.searchResult {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  font-size: 2.5rem;
+  font-weight: 500;
+  padding: 5rem;
+  gap: 5rem;
+}
+
+.spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 3rem;
+  height: 3rem;
+  border: 0.2rem solid lightgray;
+  border-bottom: 0.3rem solid lightgreen;
+  border-radius: 100%;
+  animation: spin 2s infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

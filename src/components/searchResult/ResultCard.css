@@ -1,0 +1,45 @@
+.card {
+  padding: 0.5rem;
+  border: 1px solid black;
+  cursor: pointer;
+  transition-duration: 1s;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 20vw;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: grey;
+}
+
+.cardList {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  width: 100%;
+  padding: 0 auto;
+}
+
+.cardItem {
+  display: flex;
+}
+
+.fullName {
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.optionTitle {
+  width: 40%;
+  font-size: 1rem;
+  font-weight: 500;
+  font-style: italic;
+  text-align: start;
+}
+
+.optionValue {
+  font-size: 1rem;
+  font-weight: 500;
+}
